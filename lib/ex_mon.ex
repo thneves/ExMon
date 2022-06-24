@@ -13,6 +13,6 @@ defmodule ExMon do
     |> create_player(:punch, :kick, :heal)
     |> Game.start(player)
 
-    Status.print_round_status
+    Status.print_status_message
   end
 end
