@@ -4,7 +4,6 @@ defmodule ExMon.Game.Actions.Heal do
   @heal_power 18..25
 
   def heal_life(player) do
-
     player
     |> Game.fetch_current_player()
     |> Map.get(:life)
