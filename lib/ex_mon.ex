@@ -61,5 +61,4 @@ defmodule ExMon do
   defp computer_move(_), do: :ok
 
   defp check_computer_life, do: Game.fetch_current_player(:computer).life
-
 end
