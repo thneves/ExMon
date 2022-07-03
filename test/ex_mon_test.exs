@@ -28,7 +28,6 @@ defmodule ExMonTest do
 
       assert messages =~ "The game has started!"
       assert messages =~ "status: :started"
-      assert messages =~ "turn: :player"
     end
   end
 
@@ -49,9 +48,9 @@ defmodule ExMonTest do
           ExMon.make_move(:chute)
         end)
 
-        assert messages =~ "Player attacked Computer"
-        assert messages =~ "It's computer turn"
-        assert messages =~ "It's player turn"
+        assert messages =~ "attacked"
+        assert messages =~ "dealing"
+        assert messages =~ "damage"
         assert messages =~ "status: :continue"
     end
 

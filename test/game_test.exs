@@ -18,6 +18,7 @@ defmodule ExMon.GameTest do
       computer = Player.build("Robotnik", :chute, :soco, :cura)
 
       Game.start(computer, player)
+      current_player = Game.turn
 
       expected_response = %{
         computer: %Player{
@@ -31,7 +32,7 @@ defmodule ExMon.GameTest do
           name: "Thales"
         },
         status: :started,
-        turn: :player
+        turn: current_player
       }
 
       assert Game.info() == expected_response
@@ -44,6 +45,7 @@ defmodule ExMon.GameTest do
       computer = Player.build("Robotnik", :chute, :soco, :cura)
 
       Game.start(computer, player)
+      current_player = Game.turn
 
       expected_response = %{
         computer: %Player{
@@ -57,7 +59,7 @@ defmodule ExMon.GameTest do
           name: "Thales"
         },
         status: :started,
-        turn: :player
+        turn: current_player
       }
 
       assert Game.info() == expected_response
@@ -74,12 +76,12 @@ defmodule ExMon.GameTest do
           name: "Thales"
         },
         status: :started,
-        turn: :player
+        turn: :computer
       }
 
       Game.update(new_state)
 
-      expected_response = %{new_state | turn: :computer, status: :continue}
+      expected_response = %{new_state | turn: :player, status: :continue}
 
       assert expected_response == Game.info
     end
@@ -103,7 +105,9 @@ defmodule ExMon.GameTest do
 
       Game.start(computer, player)
 
-      assert Game.turn == :player
+      current_player = Game.turn
+
+      assert Game.turn == current_player
     end
   end
 

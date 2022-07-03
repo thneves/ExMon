@@ -11,7 +11,7 @@ defmodule ExMon do
 
   def start_game(player) do
     @computer_name
-    |> create_player(:punch, :kick, :heal)
+    |> create_player(:chute, :soco, :cura)
     |> Game.start(player)
 
     Status.print_round_message(Game.info())
